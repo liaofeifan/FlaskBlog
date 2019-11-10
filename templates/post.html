@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block pageheader %}
+        <h1>{{ post.title }}</h1>
+        <h2 class="subheading">{{ post.subtitle }}</h2>
+        <span class="meta">Posted by
+                {{ post.author }}
+                on {{ post.date_posted.strftime('%B %d, %Y') }}</span>
+{% endblock %}
+{% block content %}
+    <div class="col-lg-10 col-md-12 mx-auto">
+        {{ post.content|safe }}
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block pageheader %}
+    <h1>Blog List</h1>
+    <span class="subheading"><small>Welcome <span>{{ session.username }}</span></small></span>
+
+{% endblock %}
+{% block content %}
+    <table class="table-striped">
+        <tr>
+            <td>编号</td>
+            <td>标题</td>
+            <td>作者</td>
+            <td>发表日期</td>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for blog in Blogs %}
+            <tr>
+                <td>{{ blog.id }}</td>
+                <td>{{ blog.title }}</td>
+                <td>{{ blog.author }}</td>
+                <td>{{ blog.date_posted }}</td>
+                <td><a href="edit_blog/{{ blog.id }}" class="btn btn-default pull-right">Edit</a></td>
+                <td><a href="delete_blog/{{ blog.id }}" class="btn btn-default pull-right">Delete</a></td>
+            <tr>
+        {% endfor %}
+    </table>
+    <a class='btn btn-success' href='/add_blog'> Add Blog </a>
+{% endblock %}
